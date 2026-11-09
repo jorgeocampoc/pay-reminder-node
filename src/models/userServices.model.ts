@@ -13,7 +13,7 @@ const UserService = sequelize.define(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    frecuency: {
+    frequency: {
       type: DataTypes.ENUM(...Object.values(FREQUENCY_MONTHS)),
       allowNull: false,
       defaultValue: FREQUENCY_MONTHS.monthly,

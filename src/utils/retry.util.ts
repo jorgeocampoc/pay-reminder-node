@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE } from "../constants/index.js";
 import type { ServiceType } from "../types/index.js";
 
 const tryConnection = async <T>(
@@ -12,7 +13,8 @@ const tryConnection = async <T>(
     } catch (error) {
       if (attemp === retries) throw error;
       await new Promise((resolve) => setTimeout(resolve, delay));
-      console.log('otra ves');
+          console.log(ERROR_MESSAGE.tryConnection+' [database]');
+
       
     }
   }

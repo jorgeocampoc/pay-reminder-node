@@ -1,4 +1,4 @@
-import { sequelize,DataTypes } from "../config/index.js";
+import { sequelize, DataTypes } from "../config/index.js";
 import { baseAttributes, optionsModel } from "./attributes.js";
 import { DEFAULT_IMAGE_USER, NAME_REGEX, ROLES } from "../constants/index.js";
 
@@ -23,6 +23,7 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         isEmail: true,
       },
@@ -44,20 +45,18 @@ const User = sequelize.define(
       allowNull: false,
       defaultValue: ROLES.customer,
     },
-    is_Active: {
+    is_active: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,
     },
-    email_verified: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
+    // email_verified: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false,
+    //   defaultValue: false,
+    // },
     last_login_at: {
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW(),
     },
   },
   {

@@ -1,10 +1,10 @@
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize, DataTypes, QueryTypes } from "sequelize";
 import { tryConnection } from "../utils/index.js";
 import { SERVICE_TYPE } from "../constants/index.js";
+import { env } from "./env.config.js";
 
-// Option 1: Passing a connection URI
 const sequelize = new Sequelize(
-  "postgres://postgres:12345@localhost:5432/pay_reminder",
+  env.URL_DATABASE,
 );
 
 const dbConnection = async () => {
@@ -15,11 +15,11 @@ const dbConnection = async () => {
       2000,
       SERVICE_TYPE.database,
     );
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
     console.log("DB on");
   } catch (error) {
     console.log(error);
   }
 };
 
-export { dbConnection, sequelize,DataTypes };
+export { dbConnection, sequelize,DataTypes,QueryTypes };

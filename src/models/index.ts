@@ -17,4 +17,4 @@ UserService.belongsTo(Services,relationOptions("service_id"));
 UserService.hasMany(Payment,relationOptions("user_service_id"));
 Payment.belongsTo(UserService,relationOptions("user_service_id"));
 
-export { User, Category, Services,UserService, };
+export { User, Category, Services,UserService, Payment};

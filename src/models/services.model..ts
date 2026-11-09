@@ -1,8 +1,4 @@
 import { DataTypes, sequelize } from "../config/index.js";
-import {
-  NAME_REGEX,
-  NOT_SPACES,
-} from "../constants/index.js";
 import { baseAttributes, optionsModel } from "./attributes.js";
 
 const Service = sequelize.define(
@@ -10,24 +6,38 @@ const Service = sequelize.define(
   {
     ...baseAttributes,
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
       allowNull: false,
+      set(value: string) {
+        this.setDataValue("name", value.trim().toLowerCase());
+      },
       validate: {
-        is: NAME_REGEX,
+        len: [3, 50],
       },
     },
     description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(100),
       allowNull: true,
       validate: {
-        is: NOT_SPACES,
+        validDescription(value: string | null) {
+          if (value === null || value === "") return;
+          if (value.length < 6 || value.length > 100) {
+            throw new Error("Description must be between 6 and 100 characters");
+          }
+        },
       },
     },
-   
   },
   {
     ...optionsModel,
     tableName: "services",
+    indexes: [
+      {
+        unique: true,
+        fields: ["name", "category_id"],
+        name: "unique_service_name_category",
+      },
+    ],
   },
 );
 
