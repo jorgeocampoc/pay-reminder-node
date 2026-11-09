@@ -11,14 +11,14 @@ const errorHandler = (
   res: Response,
   _next: NextFunction,
 ) => {
-console.log(error);
-  
-  if (error instanceof jwt.JsonWebTokenError){
-    res.clearCookie('access-token',{
-    maxAge: 60 * 60 * 1000,
-    httpOnly: true,
-    secure: env.NODE_ENV === "production",
-  })
+  console.log(error);
+
+  if (error instanceof jwt.JsonWebTokenError) {
+    res.clearCookie("access-token", {
+      httpOnly: true,
+      secure: env.NODE_ENV === "production",
+      sameSite: env.NODE_ENV === "production" ? "none" : "lax",
+    });
     return responseApi(res, 404, error.message);
   }
 
