@@ -8,6 +8,7 @@ const generateCookiesSession = (res: Response, user: UserFoundAuthSchema) => {
     maxAge: 60 * 60 * 1000,
     httpOnly: true,
     secure: env.NODE_ENV === "production",
+    sameSite: env.NODE_ENV === "production" ? "none" : "lax",
   });
 };
 
