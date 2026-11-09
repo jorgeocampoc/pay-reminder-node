@@ -1,7 +1,6 @@
-import { Op } from "sequelize";
 import { AppError } from "../errors/handleError.error.js";
 import { Payment, UserService } from "../models/index.js";
-import { FREQUENCY_MONTHS_NUMBERS, STATUS_PAYENT } from "../constants/index.js";
+import { FREQUENCY_MONTHS_NUMBERS } from "../constants/index.js";
 import {
   generatePaymentsService,
   updateStatusPayment,

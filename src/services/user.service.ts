@@ -1,4 +1,3 @@
-import { ERROR_MESSAGE } from "../constants/index.js";
 import { AppError } from "../errors/index.js";
 import { User } from "../models/index.js";
 import type { UserRegister } from "../types/index.js";

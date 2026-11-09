@@ -14,7 +14,7 @@ const registerUser = async (
     next(error);
   }
 };
-const uploadImage = async (req: Request, res: Response) => {};
+const uploadImage = async (_req: Request, _res: Response) => {};
 const getUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { user } = req;

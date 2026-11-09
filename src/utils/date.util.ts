@@ -1,5 +1,5 @@
-const generatePaymentDates = (date: Date) => {
-  const dates: Date[] = [];
+const generatePaymentDates = (_date: Date) => {
+  
 };
 
 const isValidDate = (dateService: string) => {

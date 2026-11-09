@@ -1,5 +1,5 @@
 import { col, literal, type Transaction } from "sequelize";
-import { Category, Services, UserService } from "../models/index.js";
+import { Category, UserService } from "../models/index.js";
 import type { UserServiceRegisterSchema } from "../types/userService.type.js";
 import Service from "../models/services.model..js";
 
