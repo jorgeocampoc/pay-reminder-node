@@ -13,7 +13,7 @@ const auth = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-const logout = (req: Request, res: Response, next: NextFunction) => {
+const logout = (_req: Request, res: Response, next: NextFunction) => {
   try {
     res.clearCookie("access-token", {
       maxAge: 60 * 60 * 1000,

@@ -1,5 +1,4 @@
 import type { Response } from "express";
-import type { PathUser } from "../types/index.js";
 
 const responseApi = (
   res: Response,

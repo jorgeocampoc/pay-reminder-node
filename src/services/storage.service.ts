@@ -9,3 +9,5 @@ const uploadImage = async (file: Express.Multer.File) => {
     .upload("public/avatar1.png", file.buffer);
   console.log(data, error);
 };
+
+export { uploadImage };
