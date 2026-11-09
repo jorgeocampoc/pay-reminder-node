@@ -1,4 +1,5 @@
-const NAME_REGEX = /^[a-z]{3,}(?: [a-z]{3,})*$/;
+const NAME_REGEX = /^[a-zA-Z]{3,}(?: [a-zA-Z]{3,})*$/;
 const NOT_SPACES = /^\S(?:.*\S)?$/;
-
-export { NAME_REGEX,NOT_SPACES };
+const PASSWORD_REGEX =
+  /^(?=.{6,}$)(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[@!#~%&^$<>?¿])\S*$/;
+export { NAME_REGEX, NOT_SPACES, PASSWORD_REGEX };

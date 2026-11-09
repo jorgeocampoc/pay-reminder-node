@@ -11,6 +11,7 @@ const Payment = sequelize.define(
       defaultValue: 0,
       validate: {
         min: 0,
+        max: 10000,
       },
     },
     status: {
@@ -24,6 +25,11 @@ const Payment = sequelize.define(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    is_available: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+  
   },
   {
     ...optionsModel,
